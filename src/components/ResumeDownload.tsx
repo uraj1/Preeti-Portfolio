@@ -5,7 +5,7 @@ import { Download, FileText, ExternalLink } from 'lucide-react';
 const ResumeDownload = () => {
   const handleDownload = () => {
     
-    const resumeUrl = 'https://drive.google.com/file/d/1vAnvonHRU-AGl67o81Mn4VTF2iR3mZc7/view?usp=drivesdk';
+    const resumeUrl = 'https://drive.google.com/file/d/1uIEtB46xjG3CYyilLroF7LI6-rrGou35/view?usp=drive_link';
     window.open(resumeUrl, '_blank');
   };
 
