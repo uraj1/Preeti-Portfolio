@@ -35,7 +35,7 @@ const Projects = () => {
       longDescription:
         "Worked on digital marketing strategy, content management and audience engagement for Medical Dialogues to increase reach and professional engagement.",
       image:
-        "https://images.unsplash.com/photo-1584516150909-c43483ee7938?q=80&w=900",
+        "https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       technologies: ["Content Strategy", "Audience Engagement", "Digital Marketing"],
       metrics: ["National Reach", "High Engagement"],
       website: "https://medicaldialogues.in/",
@@ -128,7 +128,7 @@ const Projects = () => {
       longDescription:
         "Created awareness campaigns and healthcare focused marketing strategies.",
       image:
-        "https://images.unsplash.com/photo-1588776814546-ec7e1f1c2f06?q=80&w=900",
+        "https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=1098&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       technologies: ["Healthcare Marketing", "PPC Awareness"],
       metrics: ["US Market Impact", "Lead Privacy"],
       website: "https://southfloridaintervention.com/",
@@ -219,7 +219,7 @@ const Projects = () => {
   const displayedProjects = filteredProjects.slice(0, visibleProjects);
 
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-gray-900">
+    <section className="pt-4 pb-12 md:pt-6 md:pb-16 bg-white dark:bg-gray-900" id = "projects">
 
       <div className="max-w-7xl mx-auto px-4">
 
@@ -241,15 +241,14 @@ const Projects = () => {
 
             <button
               key={category}
-              onClick={()=>{
+              onClick={() => {
                 setSelectedCategory(category)
                 setVisibleProjects(6)
               }}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
-                selectedCategory === category
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition ${selectedCategory === category
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -263,14 +262,14 @@ const Projects = () => {
 
           {displayedProjects.map(project => (
 
-           <motion.div
-  key={project.id}
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, ease: "easeOut" }}
-  whileHover={{ y: -6 }}
-  className="flex flex-col h-full bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-blue-500 shadow-sm hover:shadow-xl transition"
->
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              whileHover={{ y: -6 }}
+              className="flex flex-col h-full bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-blue-500 shadow-sm hover:shadow-xl transition"
+            >
 
               <div className="relative h-52">
 
@@ -307,7 +306,7 @@ const Projects = () => {
                     onClick={() => setSelectedProject(project)}
                     className="flex items-center gap-2 text-blue-600 font-semibold"
                   >
-                    Case Study <Eye size={16}/>
+                    Case Study <Eye size={16} />
                   </button>
 
                   <a
@@ -316,7 +315,7 @@ const Projects = () => {
                     rel="noreferrer"
                     className="p-2 bg-blue-600 text-white rounded-lg"
                   >
-                    <ExternalLink size={16}/>
+                    <ExternalLink size={16} />
                   </a>
 
                 </div>
@@ -343,119 +342,121 @@ const Projects = () => {
 
       </div>
 
-      {/* Modal */}
+{/* Modal */}
+<AnimatePresence>
+  {selectedProject && (
 
-      <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-gray-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      onClick={() => setSelectedProject(null)}
+    >
 
-        {selectedProject && (
+      <motion.div
+        initial={{ scale: 0.96, y: 20 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.96, y: 20 }}
+        className="custom-scroll bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
 
-          <motion.div
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            exit={{opacity:0}}
-            className="fixed inset-0 bg-gray-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
-            onClick={()=>setSelectedProject(null)}
+        {/* Image */}
+        <div className="relative h-52">
+
+          <img
+            src={selectedProject.image}
+            className="w-full h-full object-cover"
+          />
+
+          <button
+            onClick={() => setSelectedProject(null)}
+            className="absolute top-3 right-3 w-9 h-9 bg-black/50 text-white rounded-full flex items-center justify-center text-lg"
           >
+            ×
+          </button>
 
-            <motion.div
-              initial={{scale:0.95,y:20}}
-              animate={{scale:1,y:0}}
-              exit={{scale:0.95,y:20}}
-              className="custom-scroll bg-white dark:bg-gray-900 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-              onClick={(e)=>e.stopPropagation()}
-            >
+        </div>
 
-              <div className="relative h-64">
+        {/* Content */}
+        <div className="p-6">
 
-                <img src={selectedProject.image} className="w-full h-full object-cover"/>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            {selectedProject.title}
+          </h3>
 
-                <button
-                  onClick={()=>setSelectedProject(null)}
-                  className="absolute top-4 right-4 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center"
-                >
-                  ×
-                </button>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            {selectedProject.longDescription}
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+
+            {/* Strategy */}
+            <div>
+
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-3">
+                Core Strategy
+              </h4>
+
+              <div className="flex flex-wrap gap-2">
+
+                {selectedProject.technologies.map((tech: any, i: number) => (
+                  <span
+                    key={i}
+                    className="px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
 
               </div>
 
-              <div className="p-8">
+            </div>
 
-  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-    {selectedProject.title}
-  </h3>
+            {/* Outcomes */}
+            <div>
 
-  <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg leading-relaxed">
-    {selectedProject.longDescription}
-  </p>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400 mb-3">
+                Key Outcomes
+              </h4>
 
-  <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="space-y-2">
 
-    {/* Strategy */}
+                {selectedProject.metrics.map((m: any, i: number) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-200"
+                  >
+                    <TrendingUp className="w-4 h-4 text-teal-500" />
+                    {m}
+                  </div>
+                ))}
 
-    <div>
-      <h4 className="text-sm font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-4">
-        Core Strategy
-      </h4>
+              </div>
 
-      <div className="flex flex-wrap gap-2">
+            </div>
 
-        {selectedProject.technologies.map((tech:any,i:number)=>(
-          <span
-            key={i}
-            className="px-3 py-1 text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md"
-          >
-            {tech}
-          </span>
-        ))}
-
-      </div>
-    </div>
-
-    {/* Outcomes */}
-
-    <div>
-      <h4 className="text-sm font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 mb-4">
-        Key Outcomes
-      </h4>
-
-      <div className="space-y-2">
-
-        {selectedProject.metrics.map((m:any,i:number)=>(
-          <div
-            key={i}
-            className="flex items-center gap-2 text-gray-800 dark:text-gray-200 font-semibold"
-          >
-            <TrendingUp className="w-4 h-4 text-teal-500"/>
-            {m}
           </div>
-        ))}
 
-      </div>
-    </div>
+          {/* Visit Button */}
+          <a
+            href={selectedProject.website}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition"
+          >
+            Visit Project
+            <ExternalLink className="ml-2 w-4 h-4" />
+          </a>
 
-  </div>
+        </div>
 
-  {/* Visit Button */}
+      </motion.div>
 
-  <a
-    href={selectedProject.website}
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center justify-center w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-lg transition shadow-lg"
-  >
-    Visit Project
-    <ExternalLink className="ml-2 w-5 h-5"/>
-  </a>
-
-</div>
-
-            </motion.div>
-
-          </motion.div>
-
-        )}
-
-      </AnimatePresence>
+    </motion.div>
+  )}
+</AnimatePresence>
 
     </section>
   );
