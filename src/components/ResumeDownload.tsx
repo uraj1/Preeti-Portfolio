@@ -5,7 +5,7 @@ import { Download, FileText, ExternalLink } from 'lucide-react';
 const ResumeDownload = () => {
   const handleDownload = () => {
     
-    const resumeUrl = 'https://drive.google.com/file/d/1uIEtB46xjG3CYyilLroF7LI6-rrGou35/view?usp=drive_link';
+    const resumeUrl = 'https://drive.google.com/file/d/167XDHB6dgFdFCsgwKBjcksrNu2bL8Utl/view';
     window.open(resumeUrl, '_blank');
   };
 
@@ -33,7 +33,7 @@ const ResumeDownload = () => {
   };
 
   return (
-    <section id="resume" className="py-20 bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900">
+    <section id="resume" className="py-20 bg-gradient-to-br from-blue-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -92,7 +92,7 @@ const ResumeDownload = () => {
                           Professional Resume
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 text-center text-sm">
-                          Comprehensive 1-page resume highlighting 1+ years of data analysis experience
+                          Comprehensive 1-page resume highlighting 3+ years of digital marketing experience and key projects.
                         </p>
                       </div>
 
@@ -156,16 +156,16 @@ const ResumeDownload = () => {
 
                       {/* Additional Info */}
                       <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
-                        <p>📄 PDF Format • 📊 1 Page • 🔄 Updated March 2025</p>
+                        <p>📄 PDF Format • 📊 1 Page • 🔄 Updated March 2026</p>
                         <p>File opens in Google Drive for secure viewing</p>
                       </div>
 
                       {/* Stats */}
                       <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200 dark:border-gray-600">
                         {[
-                          { number: '1+', label: 'Years Experience' },
-                          { number: '10+', label: 'Projects Completed' },
-                          { number: '15+', label: 'Technologies' }
+                          { number: '3+', label: 'Years Experience' },
+                          { number: '350+', label: 'Projects Completed' },
+                          { number: '15+', label: 'Tools' }
                         ].map((stat, index) => (
                           <motion.div
                             key={index}

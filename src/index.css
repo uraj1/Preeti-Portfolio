@@ -6,3 +6,20 @@
 body {
   transition: background-color 0.3s, color 0.3s;
 }
+@media (hover: hover) {
+  * {
+    cursor: none;
+  }
+}
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #111111, #0f172a);
+  border-radius: 8px;
+}

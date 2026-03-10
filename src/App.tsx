@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -10,6 +10,7 @@ import ResumeDownload from './components/ResumeDownload';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import CustomCursor from './components/CustomCursor';
 
 
 function App() {
@@ -32,8 +33,11 @@ function App() {
               key="loader"
               initial={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-teal-900 flex items-center justify-center z-50"
+              className="fixed inset-0 bg-gray-950 flex items-center justify-center z-50 overflow-hidden z-50"
             >
+              <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+              <div className="absolute top-10 right-10 w-40 h-40 bg-indigo-500/20 rounded-full blur-3xl"></div>
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -51,7 +55,7 @@ function App() {
                   transition={{ delay: 0.5 }}
                   className="text-white text-xl font-semibold"
                 >
-                  Rhythm Garg
+                  Preeti Bhadouriya
                 </motion.h2>
                 <motion.p
                   initial={{ y: 20, opacity: 0 }}
@@ -59,7 +63,7 @@ function App() {
                   transition={{ delay: 0.7 }}
                   className="text-blue-200 mt-2"
                 >
-                  Data Analyst
+                  Digital Marketing Specialist
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -72,6 +76,7 @@ function App() {
             >
               <Header />
               <main>
+                <CustomCursor />
                 <Hero />
                 <About />
                 <Skills />
