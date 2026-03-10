@@ -15,10 +15,10 @@ const Contact = () => {
     if (!form.current) return;
 
     emailjs.sendForm(
-      'service_x7daq0l',
-      'template_iutnntg',
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       form.current,
-      'Gq_qv7kLQ1Zr87Jhx'
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     ).then((result) => {
       console.log('SUCCESS!', result.text);
       setIsSubmitted(true);
