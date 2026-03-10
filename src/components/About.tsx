@@ -92,7 +92,7 @@ const About = () => {
                     “Preeti helped us scale our paid campaigns with a clear strategy and measurable ROI. Her approach is both creative and analytical.”
                   </p>
                   <p className="mt-3 text-xs font-bold text-gray-900 dark:text-white">
-                    — Marketing Lead, Startup
+                    — Marketing Lead, iConcile
                   </p>
                 </div>
 
